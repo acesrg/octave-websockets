@@ -1,5 +1,15 @@
 stages:
+  - build
   - doctest
+
+build:
+  stage: build
+  script: make version
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/target/*.tar.gz
+  tags:
+    - octave-doctest
 
 doctesting:
   stage: doctest
